@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="180dp"
+    android:height="240dp"
+    android:viewportWidth="180"
+    android:viewportHeight="240">
+
+    <!-- Base Shadow -->
+    <path
+        android:fillColor="#35000000"
+        android:pathData="M90,220 m-65,0 a65,12 0 1,0 130,0 a65,12 0 1,0 -130,0" />
+
+    <!-- Speaker Body (Acoustic Fabric) -->
+    <path
+        android:fillColor="#2D3142"
+        android:pathData="M35,40 H145 A20,20 0 0,1 165,60 V200 A20,20 0 0,1 145,220 H35 A20,20 0 0,1 15,200 V60 A20,20 0 0,1 35,40 Z" />
+
+    <!-- Fabric Weave Texture Grid -->
+    <path
+        android:strokeColor="#1F2124"
+        android:strokeWidth="2"
+        android:pathData="M15,70 H165 M15,95 H165 M15,120 H165 M15,145 H165 M15,170 H165 M15,195 H165" />
+
+    <!-- Top Cap Control Plate -->
+    <path
+        android:fillColor="#151618"
+        android:pathData="M90,40 m-55,0 a55,15 0 1,0 110,0 a55,15 0 1,0 -110,0" />
+
+    <!-- Smart LED Halo Ring (Multi-color Glow) -->
+    <path
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="4"
+        android:fillColor="#00000000"
+        android:pathData="M90,40 m-45,0 a45,12 0 1,0 90,0 a45,12 0 1,0 -90,0" />
+
+    <!-- Volume + / - Symbols -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M78,38 H86 V42 H78 Z M80,34 H84 V46 H80 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M96,38 H104 V42 H96 Z" />
+
+</vector>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="360dp"
+    android:viewportWidth="200"
+    android:viewportHeight="360">
+
+    <!-- Outer Shadow -->
+    <path
+        android:fillColor="#25000000"
+        android:pathData="M30,15 H170 A25,25 0 0,1 195,40 V320 A25,25 0 0,1 170,345 H30 A25,25 0 0,1 5,320 V40 A25,25 0 0,1 30,15 Z" />
+
+    <!-- Titanium Body Frame -->
+    <path
+        android:fillColor="#2B2D30"
+        android:pathData="M32,10 H168 A22,22 0 0,1 190,32 V328 A22,22 0 0,1 168,350 H32 A22,22 0 0,1 10,328 V32 A22,22 0 0,1 32,10 Z" />
+
+    <!-- Metallic Frame Highlight -->
+    <path
+        android:strokeColor="#8E8E93"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M32,10 H168 A22,22 0 0,1 190,32 V328 A22,22 0 0,1 168,350 H32 A22,22 0 0,1 10,328 V32 A22,22 0 0,1 32,10 Z" />
+
+    <!-- Inner Glass Bezel -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M38,18 H162 A14,14 0 0,1 176,32 V328 A14,14 0 0,1 162,342 H38 A14,14 0 0,1 24,328 V32 A14,14 0 0,1 38,18 Z" />
+
+    <!-- Screen AMOLED Display Base -->
+    <path
+        android:fillColor="#0D1117"
+        android:pathData="M40,22 H160 A10,10 0 0,1 170,32 V328 A10,10 0 0,1 160,338 H40 A10,10 0 0,1 30,328 V32 A10,10 0 0,1 40,22 Z" />
+
+    <!-- Vibrant Wallpaper Layer 1 (Purple Glow) -->
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M30,120 C80,80 120,180 170,140 V328 A10,10 0 0,1 160,338 H40 A10,10 0 0,1 30,328 Z" />
+
+    <!-- Vibrant Wallpaper Layer 2 (Cyan Gradient Wave) -->
+    <path
+        android:fillColor="#03DAC6"
+        android:pathData="M30,200 C70,160 130,240 170,200 V328 A10,10 0 0,1 160,338 H40 A10,10 0 0,1 30,328 Z" />
+
+    <!-- Gold Accent Ring Wave -->
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M30,270 C80,240 120,300 170,270 V328 A10,10 0 0,1 160,338 H40 A10,10 0 0,1 30,328 Z" />
+
+    <!-- Dynamic Island Pill Notch -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M78,30 H122 A9,9 0 0,1 131,39 V39 A9,9 0 0,1 122,48 H78 A9,9 0 0,1 69,39 V39 A9,9 0 0,1 78,30 Z" />
+
+    <!-- Lens Lens Lens in Dynamic Island -->
+    <path
+        android:fillColor="#1A1A24"
+        android:pathData="M115,39 m-4,0 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0" />
+
+    <!-- Screen Glass Sheen Diagonal -->
+    <path
+        android:fillColor="#20FFFFFF"
+        android:pathData="M40,22 L140,22 L30,220 Z" />
+
+    <!-- Home Indicator -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M70,328 H130 A2,2 0 0,1 132,330 V330 A2,2 0 0,1 130,332 H70 A2,2 0 0,1 68,330 V330 A2,2 0 0,1 70,328 Z" />
+
+</vector>

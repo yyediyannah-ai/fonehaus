@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="150dp"
+    android:viewportWidth="200"
+    android:viewportHeight="150">
+    <!-- TV Frame -->
+    <path
+        android:fillColor="#212121"
+        android:pathData="M10,10 H190 A8,8 0 0,1 198,18 V118 A8,8 0 0,1 190,126 H10 A8,8 0 0,1 2,118 V18 A8,8 0 0,1 10,10 Z" />
+    <!-- TV Screen -->
+    <path
+        android:fillColor="#888888"
+        android:pathData="M18,18 H182 V110 H18 Z" />
+    <!-- TV Stand Neck -->
+    <path
+        android:fillColor="#212121"
+        android:pathData="M92,126 H108 V140 H92 Z" />
+    <!-- TV Stand Base -->
+    <path
+        android:fillColor="#212121"
+        android:pathData="M70,140 H130 V146 H70 Z" />
+</vector>

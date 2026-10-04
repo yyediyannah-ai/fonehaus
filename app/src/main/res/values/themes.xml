@@ -1,9 +1,35 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Fonehaus" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <style name="Base.Theme.Fonehaus"
+        parent="Theme.Material3.DayNight.NoActionBar">
+
+        <!-- Main Fone Haus colour (Yellow) -->
+        <item name="colorPrimary">@color/fone_yellow</item>
+
+        <item name="colorPrimaryContainer">@color/fone_yellow_light</item>
+
+        <!-- Dark Charcoal Background (#212121) -->
+        <item name="android:windowBackground">@color/black_charcoal_hex</item>
+
+        <!-- Text color on dark background -->
+        <item name="android:textColorPrimary">@color/white</item>
+
+        <!-- Material Button Style without stroke, 8dp corner radius -->
+        <item name="materialButtonStyle">@style/Widget.Fonehaus.Button</item>
+
     </style>
 
-    <style name="Theme.Fonehaus" parent="Base.Theme.Fonehaus" />
+    <style name="Widget.Fonehaus.Button" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/fone_yellow</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Theme.Fonehaus"
+        parent="Base.Theme.Fonehaus" />
+
 </resources>

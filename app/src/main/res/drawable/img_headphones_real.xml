@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp"
+    android:height="240dp"
+    android:viewportWidth="240"
+    android:viewportHeight="240">
+
+    <!-- Base Shadow -->
+    <path
+        android:fillColor="#30000000"
+        android:pathData="M40,210 C80,225 160,225 200,210 C180,230 60,230 40,210 Z" />
+
+    <!-- Headband Arch Frame -->
+    <path
+        android:strokeColor="#212121"
+        android:strokeWidth="18"
+        android:fillColor="#00000000"
+        android:strokeLineCap="round"
+        android:pathData="M40,140 C40,60 80,30 120,30 C160,30 200,60 200,140" />
+
+    <!-- Headband Inner Comfort Cushion -->
+    <path
+        android:strokeColor="#3A3D40"
+        android:strokeWidth="10"
+        android:fillColor="#00000000"
+        android:strokeLineCap="round"
+        android:pathData="M60,110 C60,65 85,42 120,42 C155,42 180,65 180,110" />
+
+    <!-- Gold Adjustment Arms -->
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M32,120 H48 V140 H32 Z" />
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M192,120 H208 V140 H192 Z" />
+
+    <!-- Left Ear Cup Housing -->
+    <path
+        android:fillColor="#2B2D30"
+        android:pathData="M20,130 H55 A15,15 0 0,1 70,145 V195 A15,15 0 0,1 55,210 H20 A15,15 0 0,1 5,195 V145 A15,15 0 0,1 20,130 Z" />
+
+    <!-- Left Ear Cup Cushion Pad -->
+    <path
+        android:fillColor="#555555"
+        android:pathData="M42,135 H60 A10,10 0 0,1 70,145 V195 A10,10 0 0,1 60,205 H42 A10,10 0 0,1 32,195 V145 A10,10 0 0,1 42,135 Z" />
+
+    <!-- Right Ear Cup Housing -->
+    <path
+        android:fillColor="#2B2D30"
+        android:pathData="M185,130 H220 A15,15 0 0,1 235,145 V195 A15,15 0 0,1 220,210 H185 A15,15 0 0,1 170,195 V145 A15,15 0 0,1 185,130 Z" />
+
+    <!-- Right Ear Cup Cushion Pad -->
+    <path
+        android:fillColor="#555555"
+        android:pathData="M180,135 H198 A10,10 0 0,1 208,145 V195 A10,10 0 0,1 198,205 H180 A10,10 0 0,1 170,195 V145 A10,10 0 0,1 180,135 Z" />
+
+    <!-- Gold Accent Trim Ring -->
+    <path
+        android:strokeColor="#FFC107"
+        android:strokeWidth="3"
+        android:fillColor="#00000000"
+        android:pathData="M20,170 H70 M170,170 H220" />
+
+</vector>

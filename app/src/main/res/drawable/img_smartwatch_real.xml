@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="160dp"
+    android:height="260dp"
+    android:viewportWidth="160"
+    android:viewportHeight="260">
+
+    <!-- Base Drop Shadow -->
+    <path
+        android:fillColor="#35000000"
+        android:pathData="M80,240 m-50,0 a50,10 0 1,0 100,0 a50,10 0 1,0 -100,0" />
+
+    <!-- Top Strap -->
+    <path
+        android:fillColor="#37393D"
+        android:pathData="M52,10 H108 V70 H52 Z" />
+    <path
+        android:strokeColor="#2A2C30"
+        android:strokeWidth="2"
+        android:pathData="M52,25 H108 M52,40 H108 M52,55 H108" />
+
+    <!-- Bottom Strap -->
+    <path
+        android:fillColor="#37393D"
+        android:pathData="M52,190 H108 V250 H52 Z" />
+    <path
+        android:strokeColor="#2A2C30"
+        android:strokeWidth="2"
+        android:pathData="M52,205 H108 M52,220 H108 M52,235 H108" />
+
+    <!-- Watch Case Frame -->
+    <path
+        android:fillColor="#1E1E24"
+        android:pathData="M35,60 H125 A20,20 0 0,1 145,80 V180 A20,20 0 0,1 125,200 H35 A20,20 0 0,1 15,180 V80 A20,20 0 0,1 35,60 Z" />
+
+    <!-- Digital Crown Dial Button -->
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M145,100 H152 A3,3 0 0,1 155,103 V125 A3,3 0 0,1 152,128 H145 Z" />
+
+    <!-- OLED Curved Display Glass -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M38,65 H122 A15,15 0 0,1 137,80 V180 A15,15 0 0,1 122,195 H38 A15,15 0 0,1 23,180 V80 A15,15 0 0,1 38,65 Z" />
+
+    <!-- Screen UI Active Area -->
+    <path
+        android:fillColor="#0B0E14"
+        android:pathData="M40,68 H120 A12,12 0 0,1 132,80 V178 A12,12 0 0,1 120,190 H40 A12,12 0 0,1 28,178 V80 A12,12 0 0,1 40,68 Z" />
+
+    <!-- Activity Circular Ring (Gold) -->
+    <path
+        android:strokeColor="#FFC107"
+        android:strokeWidth="4"
+        android:fillColor="#00000000"
+        android:pathData="M80,130 m-30,0 a30,30 0 1,0 60,0 a30,30 0 1,0 -60,0" />
+
+    <!-- Digital Clock Text Graphic -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M65,122 H95 V138 H65 Z" />
+
+</vector>

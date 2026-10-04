@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="220dp"
+    android:viewportWidth="320"
+    android:viewportHeight="220">
+
+    <!-- TV Frame Drop Shadow -->
+    <path
+        android:fillColor="#30000000"
+        android:pathData="M10,10 H310 A6,6 0 0,1 316,16 V180 A6,6 0 0,1 310,186 H10 A6,6 0 0,1 4,180 V16 A6,6 0 0,1 10,10 Z" />
+
+    <!-- Metallic Edge Bezel -->
+    <path
+        android:fillColor="#1E1E24"
+        android:pathData="M12,12 H308 A4,4 0 0,1 312,16 V176 A4,4 0 0,1 308,180 H12 A4,4 0 0,1 8,176 V16 A4,4 0 0,1 12,12 Z" />
+
+    <!-- Screen Base -->
+    <path
+        android:fillColor="#0B0E14"
+        android:pathData="M16,16 H304 V172 H16 Z" />
+
+    <!-- Sunset Mountain Scene Graphic -->
+    <!-- Sky Glow -->
+    <path
+        android:fillColor="#FF6B6B"
+        android:pathData="M16,16 H304 V110 H16 Z" />
+
+    <!-- Sun Disc -->
+    <path
+        android:fillColor="#FFD166"
+        android:pathData="M160,80 m-25,0 a25,25 0 1,0 50,0 a25,25 0 1,0 -50,0" />
+
+    <!-- Mountain Silhouette -->
+    <path
+        android:fillColor="#1D3557"
+        android:pathData="M16,172 L70,80 L140,140 L210,65 L304,172 Z" />
+
+    <path
+        android:fillColor="#0D1B2A"
+        android:pathData="M16,172 L110,100 L190,172 L260,110 L304,172 Z" />
+
+    <!-- Screen Glass Reflection Glare -->
+    <path
+        android:fillColor="#20FFFFFF"
+        android:pathData="M16,16 L140,16 L16,160 Z" />
+
+    <!-- Power Indicator LED (Green Glow) -->
+    <path
+        android:fillColor="#00E676"
+        android:pathData="M160,176 m-2,0 a2,2 0 1,0 4,0 a2,2 0 1,0 -4,0" />
+
+    <!-- Metallic Stand Feet -->
+    <path
+        android:fillColor="#3A3D40"
+        android:pathData="M50,180 L35,210 H48 L59,180 Z" />
+    <path
+        android:fillColor="#3A3D40"
+        android:pathData="M270,180 L285,210 H272 L261,180 Z" />
+
+    <!-- Stand Shadow Anchors -->
+    <path
+        android:fillColor="#40000000"
+        android:pathData="M25,208 H58 V212 H25 Z" />
+    <path
+        android:fillColor="#40000000"
+        android:pathData="M262,208 H295 V212 H262 Z" />
+
+</vector>

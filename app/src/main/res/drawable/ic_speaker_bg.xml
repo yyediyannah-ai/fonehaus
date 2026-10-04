@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="160dp"
+    android:viewportWidth="120"
+    android:viewportHeight="160">
+    <!-- Speaker body -->
+    <path
+        android:fillColor="#212121"
+        android:pathData="M25,10 H95 A15,15 0 0,1 110,25 V135 A15,15 0 0,1 95,150 H25 A15,15 0 0,1 10,135 V25 A15,15 0 0,1 25,10 Z" />
+    <!-- Tweeter circle -->
+    <path
+        android:fillColor="#888888"
+        android:pathData="M60,45 m-18,0 a18,18 0 1,0 36,0 a18,18 0 1,0 -36,0" />
+    <!-- Subwoofer circle -->
+    <path
+        android:fillColor="#888888"
+        android:pathData="M60,105 m-28,0 a28,28 0 1,0 56,0 a28,28 0 1,0 -56,0" />
+</vector>

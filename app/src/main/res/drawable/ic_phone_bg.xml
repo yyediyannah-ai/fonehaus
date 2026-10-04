@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="200dp"
+    android:viewportWidth="120"
+    android:viewportHeight="200">
+    <!-- Phone body frame -->
+    <path
+        android:fillColor="#212121"
+        android:pathData="M20,10 H100 A15,15 0 0,1 115,25 V175 A15,15 0 0,1 100,190 H20 A15,15 0 0,1 5,175 V25 A15,15 0 0,1 20,10 Z" />
+    <!-- Screen -->
+    <path
+        android:fillColor="#888888"
+        android:pathData="M12,28 H108 V168 H12 Z" />
+    <!-- Camera notch / island -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M48,16 H72 A4,4 0 0,1 76,20 V20 A4,4 0 0,1 72,24 H48 A4,4 0 0,1 44,20 V20 A4,4 0 0,1 48,16 Z" />
+</vector>

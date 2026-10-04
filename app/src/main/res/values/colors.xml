@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
-    <color name="black">#FF000000</color>
+
+    <!-- ==========================================
+         FONE HAUS MAIN COLOURS (YELLOW THEME)
+         ========================================== -->
+
+    <color name="fone_yellow">#FFC107</color>
+
+    <color name="fone_yellow_dark">#FFA000</color>
+
+    <color name="fone_yellow_light">#333333</color>
+
+    <color name="fone_yellow_text">#FFC107</color>
+
+    <!-- Aliases for backwards compatibility -->
+
+    <color name="fone_green">#FFC107</color>
+
+    <color name="fone_green_dark">#FFA000</color>
+
+    <color name="fone_green_light">#333333</color>
+
+    <color name="fone_green_text">#FFC107</color>
+
+    <!-- Basic colours -->
+
     <color name="white">#FFFFFFFF</color>
+
+    <color name="black">#FF000000</color>
+
+    <color name="text_primary">#FFFFFFFF</color>
+
+    <color name="text_secondary">#CCCCCC</color>
+
+    <!-- Dark Charcoal Background (#212121) -->
+
+    <color name="black_charcoal_hex">#212121</color>
+
+    <color name="light_background">#212121</color>
+
+    <color name="creamy_white_background">#212121</color>
+
 </resources>
