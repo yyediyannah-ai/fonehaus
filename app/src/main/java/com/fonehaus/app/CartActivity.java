@@ -1,8 +1,11 @@
 package com.fonehaus.app;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,9 +24,27 @@ public class CartActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_cart);
 
-        cartContainer =
-                findViewById(R.id.cartContainer);
+        cartContainer = findViewById(R.id.cartContainer);
+        Button btnCheckout = findViewById(R.id.btnCheckout);
 
+        if (btnCheckout != null) {
+            btnCheckout.setOnClickListener(v -> {
+                Cart cart = CartManager.getCart();
+                if (cart.getProducts().isEmpty()) {
+                    Toast.makeText(CartActivity.this, "Your cart is empty. Add products before checkout.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(CartActivity.this, CheckoutActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
+
+        displayCart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         displayCart();
     }
 
@@ -33,54 +54,37 @@ public class CartActivity extends AppCompatActivity {
 
     private void displayCart() {
 
-        Cart cart =
-                CartManager.getCart();
+        Cart cart = CartManager.getCart();
 
         cartContainer.removeAllViews();
 
         if (cart.getProducts().isEmpty()) {
 
-            TextView emptyMessage =
-                    new TextView(this);
+            TextView emptyMessage = new TextView(this);
 
-            emptyMessage.setText(
-                    "Your shopping cart is empty."
-            );
+            emptyMessage.setText("Your shopping cart is empty.");
 
             emptyMessage.setTextSize(18);
 
-            emptyMessage.setTextColor(
-                    getColor(R.color.white)
-            );
+            emptyMessage.setTextColor(getColor(R.color.text_primary));
 
             cartContainer.addView(emptyMessage);
 
             return;
         }
 
-        for (Product product :
-                cart.getProducts()) {
+        for (Product product : cart.getProducts()) {
 
-            TextView productText =
-                    new TextView(this);
+            TextView productText = new TextView(this);
 
-            productText.setText(
-                    product.getProductName()
-                            + "\nK"
-                            + String.format(
-                            "%.2f",
-                            product.getPrice())
-            );
+            // Polymorphic method call
+            productText.setText(product.displayProduct());
 
             productText.setTextSize(18);
 
-            productText.setTextColor(
-                    getColor(R.color.white)
-            );
+            productText.setTextColor(getColor(R.color.text_primary));
 
-            productText.setPadding(
-                    0, 20, 0, 20
-            );
+            productText.setPadding(0, 20, 0, 20);
 
             cartContainer.addView(productText);
         }
@@ -89,25 +93,15 @@ public class CartActivity extends AppCompatActivity {
         // TOTAL
         // ======================================
 
-        TextView totalText =
-                new TextView(this);
+        TextView totalText = new TextView(this);
 
-        totalText.setText(
-                "TOTAL: K"
-                        + String.format(
-                        "%.2f",
-                        cart.calculateTotal())
-        );
+        totalText.setText("TOTAL: K" + String.format("%.2f", cart.calculateTotal()));
 
         totalText.setTextSize(24);
 
-        totalText.setTextColor(
-                getColor(R.color.fone_yellow)
-        );
+        totalText.setTextColor(getColor(R.color.fone_yellow_text));
 
-        totalText.setPadding(
-                0, 30, 0, 30
-        );
+        totalText.setPadding(0, 30, 0, 30);
 
         cartContainer.addView(totalText);
     }

@@ -2,6 +2,7 @@ package com.fonehaus.app;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -58,7 +59,7 @@ public class ProductListActivity extends AppCompatActivity {
         if (products.isEmpty()) {
             TextView emptyText = new TextView(this);
             emptyText.setText("No products available in this category.");
-            emptyText.setTextSize(16);
+            emptyText.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.body_text_size));
             emptyText.setTextColor(getColor(R.color.text_secondary));
             emptyText.setPadding(0, 32, 0, 32);
             productContainer.addView(emptyText);
@@ -83,24 +84,26 @@ public class ProductListActivity extends AppCompatActivity {
     }
 
     // ==========================================
-    // ADD PRODUCT CARD TO SCREEN
+    // ADD RESPONSIVE PRODUCT CARD TO SCREEN
     // ==========================================
 
     private void addProductToScreen(Product product) {
 
-        float density = getResources().getDisplayMetrics().density;
+        int cardPadding = getResources().getDimensionPixelSize(R.dimen.card_padding);
+        int imageHeight = getResources().getDimensionPixelSize(R.dimen.product_image_height);
+        int cornerRadius = getResources().getDimensionPixelSize(R.dimen.button_corner_radius);
 
         // Container Card
         LinearLayout card = new LinearLayout(this);
         card.setOrientation(LinearLayout.VERTICAL);
-        card.setPadding((int) (16 * density), (int) (16 * density), (int) (16 * density), (int) (16 * density));
-        card.setBackgroundColor(0xFF222222);
+        card.setPadding(cardPadding, cardPadding, cardPadding, cardPadding);
+        card.setBackgroundColor(0xFFF5F5F5); // Light card container on white background
 
         LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        cardParams.setMargins(0, 0, 0, (int) (16 * density));
+        cardParams.setMargins(0, 0, 0, cardPadding);
         card.setLayoutParams(cardParams);
 
         // Product Image
@@ -113,9 +116,9 @@ public class ProductListActivity extends AppCompatActivity {
 
         LinearLayout.LayoutParams imgParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
-                (int) (160 * density)
+                imageHeight
         );
-        imgParams.setMargins(0, 0, 0, (int) (8 * density));
+        imgParams.setMargins(0, 0, 0, cardPadding / 2);
         img.setLayoutParams(imgParams);
         img.setScaleType(ImageView.ScaleType.FIT_CENTER);
         card.addView(img);
@@ -123,27 +126,27 @@ public class ProductListActivity extends AppCompatActivity {
         // Product Name
         TextView name = new TextView(this);
         name.setText(product.getProductName());
-        name.setTextSize(18);
+        name.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.subtitle_text_size));
         name.setTypeface(null, android.graphics.Typeface.BOLD);
-        name.setTextColor(getColor(R.color.white));
+        name.setTextColor(getColor(R.color.text_primary));
         card.addView(name);
 
         // Price
         TextView price = new TextView(this);
         price.setText("K" + String.format("%.2f", product.getPrice()));
-        price.setTextSize(16);
+        price.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.body_text_size));
         price.setTypeface(null, android.graphics.Typeface.BOLD);
-        price.setTextColor(getColor(R.color.fone_yellow));
-        price.setPadding(0, (int) (4 * density), 0, (int) (4 * density));
+        price.setTextColor(getColor(R.color.fone_yellow_text));
+        price.setPadding(0, cardPadding / 4, 0, cardPadding / 4);
         card.addView(price);
 
         // Description snippet
         TextView desc = new TextView(this);
         desc.setText(product.getDescription());
-        desc.setTextSize(14);
+        desc.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.chip_text_size));
         desc.setTextColor(getColor(R.color.text_secondary));
         desc.setMaxLines(2);
-        desc.setPadding(0, 0, 0, (int) (12 * density));
+        desc.setPadding(0, 0, 0, cardPadding / 2);
         card.addView(desc);
 
         // Action Button
@@ -153,7 +156,7 @@ public class ProductListActivity extends AppCompatActivity {
         detailsButton.setTextColor(getColor(R.color.black));
         detailsButton.setBackgroundTintList(getColorStateList(R.color.fone_yellow));
         detailsButton.setStrokeWidth(0);
-        detailsButton.setCornerRadius((int) (8 * density));
+        detailsButton.setCornerRadius(cornerRadius);
 
         card.addView(detailsButton);
 

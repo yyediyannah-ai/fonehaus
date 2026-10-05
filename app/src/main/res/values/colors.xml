@@ -10,9 +10,9 @@
 
     <color name="fone_yellow_dark">#FFA000</color>
 
-    <color name="fone_yellow_light">#333333</color>
+    <color name="fone_yellow_light">#FFF8E1</color>
 
-    <color name="fone_yellow_text">#FFC107</color>
+    <color name="fone_yellow_text">#C68A00</color>
 
     <!-- Aliases for backwards compatibility -->
 
@@ -20,9 +20,9 @@
 
     <color name="fone_green_dark">#FFA000</color>
 
-    <color name="fone_green_light">#333333</color>
+    <color name="fone_green_light">#FFF8E1</color>
 
-    <color name="fone_green_text">#FFC107</color>
+    <color name="fone_green_text">#C68A00</color>
 
     <!-- Basic colours -->
 
@@ -30,16 +30,16 @@
 
     <color name="black">#FF000000</color>
 
-    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_primary">#FF111111</color>
 
-    <color name="text_secondary">#CCCCCC</color>
+    <color name="text_secondary">#FF555555</color>
 
-    <!-- Dark Charcoal Background (#212121) -->
+    <!-- Clean White Background (#FFFFFF) -->
 
-    <color name="black_charcoal_hex">#212121</color>
+    <color name="black_charcoal_hex">#FFFFFFFF</color>
 
-    <color name="light_background">#212121</color>
+    <color name="light_background">#FFFFFFFF</color>
 
-    <color name="creamy_white_background">#212121</color>
+    <color name="creamy_white_background">#FFFFFFFF</color>
 
 </resources>

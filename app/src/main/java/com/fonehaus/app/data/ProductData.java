@@ -2,8 +2,10 @@ package com.fonehaus.app.data;
 
 import com.fonehaus.app.R;
 import com.fonehaus.app.model.IPhone;
+import com.fonehaus.app.model.Laptop;
 import com.fonehaus.app.model.Phone;
 import com.fonehaus.app.model.Product;
+import com.fonehaus.app.model.Tablet;
 
 import java.util.ArrayList;
 
@@ -17,7 +19,7 @@ public class ProductData {
 
         ArrayList<Product> products = new ArrayList<>();
 
-        // --- SAMSUNG PHONES ---
+        // --- SAMSUNG PHONES (Phone Subclass) ---
         products.add(
                 new Phone(
                         "SAMSUNG GALAXY A07",
@@ -118,7 +120,7 @@ public class ProductData {
                 )
         );
 
-        // --- IPHONES ---
+        // --- IPHONES (IPhone Subclass -> extends Phone -> extends Product) ---
         products.add(
                 new IPhone(
                         "Apple iPhone 14 Pro Max",
@@ -129,9 +131,9 @@ public class ProductData {
                 )
         );
 
-        // --- TABLETS ---
+        // --- TABLETS (Tablet Subclass) ---
         products.add(
-                new Product(
+                new Tablet(
                         "SAMSUNG GALAXY TAB A11",
                         899.00,
                         "Versatile Samsung tablet for work and study with quad speakers and slim aluminum body.",
@@ -141,7 +143,7 @@ public class ProductData {
         );
 
         products.add(
-                new Product(
+                new Tablet(
                         "SAMSUNG GALAXY TAB S10 ULTRA 5G",
                         6799.00,
                         "Flagship 14.6-inch AMOLED 5G tablet with S Pen stylus included.",
@@ -150,9 +152,9 @@ public class ProductData {
                 )
         );
 
-        // --- LAPTOPS ---
+        // --- LAPTOPS (Laptop Subclass) ---
         products.add(
-                new Product(
+                new Laptop(
                         "INFINIX InBook Air Laptop",
                         2499.00,
                         "Ultra-lightweight laptop with Full HD screen, fast SSD storage, and metal finish.",
@@ -161,7 +163,7 @@ public class ProductData {
                 )
         );
 
-        // --- AUDIO & HEADPHONES ---
+        // --- AUDIO & HEADPHONES (Product Base Class) ---
         products.add(
                 new Product(
                         "JBL Tune On-Ear Wired Headphones",
@@ -222,11 +224,30 @@ public class ProductData {
 
         for (Product product : all) {
             if (product.getCategory().equalsIgnoreCase(category)
-                    || (category.equalsIgnoreCase("Phones") && product instanceof Phone)) {
+                    || (category.equalsIgnoreCase("Phones") && product instanceof Phone)
+                    || (category.equalsIgnoreCase("iPhones") && product instanceof IPhone)
+                    || (category.equalsIgnoreCase("Tablets") && product instanceof Tablet)
+                    || (category.equalsIgnoreCase("Laptops") && product instanceof Laptop)) {
                 filtered.add(product);
             }
         }
 
         return filtered;
+    }
+
+    /**
+     * Demonstrates polymorphic behavior across the Product hierarchy.
+     * Iterates over a list of Product references and invokes overridden methods.
+     */
+    public static String demonstratePolymorphism() {
+        StringBuilder sb = new StringBuilder("=== POLYMORPHISM DEMONSTRATION ===\n\n");
+        ArrayList<Product> products = getAllProducts();
+
+        for (Product p : products) {
+            // Polymorphic method calls - dynamically dispatches to subclass implementations
+            sb.append(p.displayProduct()).append("\n");
+            sb.append("   -> ").append(p.getCategoryDetails()).append("\n\n");
+        }
+        return sb.toString();
     }
 }

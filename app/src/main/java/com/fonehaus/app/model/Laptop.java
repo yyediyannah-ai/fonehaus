@@ -2,26 +2,20 @@ package com.fonehaus.app.model;
 
 import java.util.Locale;
 
-public class IPhone extends Phone {
+public class Laptop extends Product {
 
-    // ==============================
-    // CONSTRUCTORS
-    // ==============================
-
-    public IPhone(String productName,
+    public Laptop(String productName,
                   double price,
                   String description,
                   String category) {
-
         super(productName, price, description, category, 0);
     }
 
-    public IPhone(String productName,
+    public Laptop(String productName,
                   double price,
                   String description,
                   String category,
                   int imageResId) {
-
         super(productName, price, description, category, imageResId);
     }
 
@@ -31,12 +25,12 @@ public class IPhone extends Phone {
 
     @Override
     public String displayProduct() {
-        return "iPhone: " + getProductName()
+        return "Laptop: " + getProductName()
                 + " - K" + String.format(Locale.US, "%.2f", getPrice());
     }
 
     @Override
     public String getCategoryDetails() {
-        return "Category: Apple iOS Smartphone | " + getDescription();
+        return "Category: Computing & Laptop | " + getDescription();
     }
 }

@@ -1,5 +1,7 @@
 package com.fonehaus.app.model;
 
+import java.util.Locale;
+
 public class Phone extends Product {
 
     // ==============================
@@ -24,12 +26,17 @@ public class Phone extends Product {
     }
 
     // ==============================
-    // METHOD OVERRIDING
+    // METHOD OVERRIDING (POLYMORPHISM)
     // ==============================
 
     @Override
     public String displayProduct() {
         return "Phone: " + getProductName()
-                + " - K" + String.format("%.2f", getPrice());
+                + " - K" + String.format(Locale.US, "%.2f", getPrice());
+    }
+
+    @Override
+    public String getCategoryDetails() {
+        return "Category: Mobile Phone | " + getDescription();
     }
 }

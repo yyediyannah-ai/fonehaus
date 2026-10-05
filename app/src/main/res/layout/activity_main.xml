@@ -30,7 +30,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <!-- ==========================================
-             LIGHT BLACK SHADOW OVERLAY (SCRIM)
+             LIGHT SHADOW OVERLAY (SCRIM)
              ========================================== -->
 
         <View
@@ -63,17 +63,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
+            <!-- FONE HAUS OFFICIAL LOGO IMAGE -->
 
-
-            <!-- FONE HAUS TITLE (YELLOW COLOR) -->
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="FONE HAUS"
-                android:textSize="@dimen/title_text_size"
-                android:textStyle="bold"
-                android:textColor="@color/fone_yellow" />
+            <ImageView
+                android:id="@+id/imgFoneHausLogo"
+                android:layout_width="@dimen/welcome_logo_size"
+                android:layout_height="@dimen/welcome_logo_size"
+                android:src="@drawable/ic_fone_haus_logo"
+                android:scaleType="fitCenter"
+                android:contentDescription="Fone Haus Logo"
+                android:layout_marginBottom="8dp" />
 
             <!-- WELCOME MESSAGE -->
 
@@ -83,18 +82,18 @@
                 android:text="Welcome to Fone Haus"
                 android:textSize="@dimen/subtitle_text_size"
                 android:textStyle="bold"
-                android:textColor="@color/white"
-                android:layout_marginTop="8dp" />
+                android:textColor="@color/text_primary"
+                android:layout_marginTop="4dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Browse smartphones, laptops, audio gear, and TVs."
                 android:textSize="@dimen/body_text_size"
-                android:textColor="#CCCCCC"
+                android:textColor="@color/text_secondary"
                 android:gravity="center"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="20dp" />
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp" />
 
             <!-- QUICK CATEGORY CHIPS ROW (FEATURE) -->
 
@@ -102,7 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scrollbars="none"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="16dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -114,8 +113,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="📱 Phones"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/chip_text_size"
                         android:textStyle="bold"
                         android:background="@drawable/bg_chip_category"
                         android:paddingStart="14dp"
@@ -129,8 +128,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="💻 Laptops"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/chip_text_size"
                         android:textStyle="bold"
                         android:background="@drawable/bg_chip_category"
                         android:paddingStart="14dp"
@@ -144,8 +143,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="🎧 Audio"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/chip_text_size"
                         android:textStyle="bold"
                         android:background="@drawable/bg_chip_category"
                         android:paddingStart="14dp"
@@ -159,8 +158,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="📺 Smart TVs"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/chip_text_size"
                         android:textStyle="bold"
                         android:background="@drawable/bg_chip_category"
                         android:paddingStart="14dp"
@@ -186,7 +185,7 @@
                 android:textStyle="bold"
                 app:backgroundTint="@color/fone_yellow"
                 app:strokeWidth="0dp"
-                app:cornerRadius="8dp" />
+                app:cornerRadius="@dimen/button_corner_radius" />
 
             <!-- CATEGORIES -->
 
@@ -203,7 +202,7 @@
                 android:layout_marginTop="12dp"
                 app:backgroundTint="@color/fone_yellow"
                 app:strokeWidth="0dp"
-                app:cornerRadius="8dp" />
+                app:cornerRadius="@dimen/button_corner_radius" />
 
             <!-- CART -->
 
@@ -220,7 +219,7 @@
                 android:layout_marginTop="12dp"
                 app:backgroundTint="@color/fone_yellow"
                 app:strokeWidth="0dp"
-                app:cornerRadius="8dp" />
+                app:cornerRadius="@dimen/button_corner_radius" />
 
         </LinearLayout>
 

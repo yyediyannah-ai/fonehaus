@@ -10,11 +10,11 @@
 
         <item name="colorPrimaryContainer">@color/fone_yellow_light</item>
 
-        <!-- Dark Charcoal Background (#212121) -->
+        <!-- Clean White Background (#FFFFFF) -->
         <item name="android:windowBackground">@color/black_charcoal_hex</item>
 
-        <!-- Text color on dark background -->
-        <item name="android:textColorPrimary">@color/white</item>
+        <!-- Primary text color on light background -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
 
         <!-- Material Button Style without stroke, 8dp corner radius -->
         <item name="materialButtonStyle">@style/Widget.Fonehaus.Button</item>

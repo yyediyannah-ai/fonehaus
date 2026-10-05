@@ -1,5 +1,7 @@
 package com.fonehaus.app.model;
 
+import java.util.Locale;
+
 public class Product {
 
     // ==============================
@@ -86,10 +88,14 @@ public class Product {
     }
 
     // ==============================
-    // METHOD
+    // METHODS (FOR POLYMORPHISM)
     // ==============================
 
     public String displayProduct() {
-        return productName + " - K" + String.format("%.2f", price);
+        return "Product: " + productName + " - K" + String.format(Locale.US, "%.2f", price);
+    }
+
+    public String getCategoryDetails() {
+        return "Category: " + category + " | " + description;
     }
 }
