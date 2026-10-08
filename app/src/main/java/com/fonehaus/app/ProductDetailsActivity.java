@@ -11,8 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.fonehaus.app.model.CartManager;
 import com.fonehaus.app.model.IPhone;
+import com.fonehaus.app.model.Laptop;
 import com.fonehaus.app.model.Phone;
 import com.fonehaus.app.model.Product;
+import com.fonehaus.app.model.Tablet;
 
 public class ProductDetailsActivity extends AppCompatActivity {
 
@@ -76,6 +78,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
                     product = new IPhone(productName, price, description, category, imageResId);
                 } else if (category != null && category.equalsIgnoreCase("Phones")) {
                     product = new Phone(productName, price, description, category, imageResId);
+                } else if (category != null && category.equalsIgnoreCase("Tablets")) {
+                    product = new Tablet(productName, price, description, category, imageResId);
+                } else if (category != null && category.equalsIgnoreCase("Laptops")) {
+                    product = new Laptop(productName, price, description, category, imageResId);
                 } else {
                     product = new Product(productName, price, description, category, imageResId);
                 }
