@@ -2,13 +2,21 @@ package com.fonehaus.app;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.fonehaus.app.data.ProductData;
 import com.fonehaus.app.model.Product;
@@ -19,6 +27,9 @@ import java.util.ArrayList;
 public class ProductListActivity extends AppCompatActivity {
 
     private LinearLayout productContainer;
+    private EditText edtProductListSearch;
+    private TextView btnClearProductSearch;
+    private String selectedCategory = "All";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +40,23 @@ public class ProductListActivity extends AppCompatActivity {
 
         productContainer = findViewById(R.id.productContainer);
         TextView txtTitle = findViewById(R.id.txtProductListTitle);
+        edtProductListSearch = findViewById(R.id.edtProductListSearch);
+        btnClearProductSearch = findViewById(R.id.btnClearProductSearch);
 
         // ==========================================
-        // GET CATEGORY FILTER FROM INTENT
+        // GET INTENT EXTRAS
         // ==========================================
 
-        String selectedCategory = getIntent().getStringExtra("category");
+        if (getIntent().hasExtra("category")) {
+            String cat = getIntent().getStringExtra("category");
+            if (cat != null && !cat.trim().isEmpty()) {
+                selectedCategory = cat;
+            }
+        }
 
-        if (txtTitle != null && selectedCategory != null && !selectedCategory.isEmpty()) {
+        String initialSearchQuery = getIntent().getStringExtra("searchQuery");
+
+        if (txtTitle != null) {
             if (selectedCategory.equalsIgnoreCase("All")) {
                 txtTitle.setText("All Products");
             } else if (selectedCategory.equalsIgnoreCase("Phones")) {
@@ -47,26 +67,42 @@ public class ProductListActivity extends AppCompatActivity {
         }
 
         // ==========================================
-        // GET FILTERED PRODUCTS
+        // SEARCH INPUT LISTENER
         // ==========================================
 
-        ArrayList<Product> products = ProductData.getProductsByCategory(selectedCategory);
+        if (edtProductListSearch != null) {
+            edtProductListSearch.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
-        // ==========================================
-        // DISPLAY PRODUCTS
-        // ==========================================
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    String query = s.toString();
+                    if (btnClearProductSearch != null) {
+                        btnClearProductSearch.setVisibility(!query.isEmpty() ? View.VISIBLE : View.GONE);
+                    }
+                    performSearch(query);
+                }
 
-        if (products.isEmpty()) {
-            TextView emptyText = new TextView(this);
-            emptyText.setText("No products available in this category.");
-            emptyText.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.body_text_size));
-            emptyText.setTextColor(getColor(R.color.text_secondary));
-            emptyText.setPadding(0, 32, 0, 32);
-            productContainer.addView(emptyText);
+                @Override
+                public void afterTextChanged(Editable s) {}
+            });
+        }
+
+        if (btnClearProductSearch != null) {
+            btnClearProductSearch.setOnClickListener(v -> {
+                if (edtProductListSearch != null) {
+                    edtProductListSearch.setText("");
+                }
+            });
+        }
+
+        // If pre-filled query was provided from MainActivity or CategoryActivity
+        if (initialSearchQuery != null && !initialSearchQuery.trim().isEmpty() && edtProductListSearch != null) {
+            edtProductListSearch.setText(initialSearchQuery.trim());
+            edtProductListSearch.setSelection(initialSearchQuery.trim().length());
         } else {
-            for (Product product : products) {
-                addProductToScreen(product);
-            }
+            performSearch("");
         }
 
         // ==========================================
@@ -76,10 +112,53 @@ public class ProductListActivity extends AppCompatActivity {
         Button btnCart = findViewById(R.id.btnProductListCart);
 
         if (btnCart != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(btnCart, (v, insets) -> {
+                Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+                ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                if (lp != null) {
+                    int baseMargin = getResources().getDimensionPixelSize(R.dimen.button_margin_bottom);
+                    lp.bottomMargin = systemBars.bottom + baseMargin;
+                    v.setLayoutParams(lp);
+                }
+                return insets;
+            });
+
             btnCart.setOnClickListener(v -> {
                 Intent intent = new Intent(ProductListActivity.this, CartActivity.class);
                 startActivity(intent);
             });
+        }
+    }
+
+    private void performSearch(String query) {
+        ArrayList<Product> products = ProductData.searchProducts(query, selectedCategory);
+        displayProducts(products, query);
+    }
+
+    // ==========================================
+    // DISPLAY PRODUCTS
+    // ==========================================
+
+    private void displayProducts(ArrayList<Product> products, String currentQuery) {
+
+        productContainer.removeAllViews();
+
+        if (products.isEmpty()) {
+            TextView emptyText = new TextView(this);
+            if (currentQuery != null && !currentQuery.trim().isEmpty()) {
+                emptyText.setText("No products found matching \"" + currentQuery.trim() + "\".");
+            } else {
+                emptyText.setText("No products available in this category.");
+            }
+            emptyText.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.body_text_size));
+            emptyText.setTextColor(getColor(R.color.text_secondary));
+            emptyText.setPadding(16, 48, 16, 48);
+            emptyText.setGravity(android.view.Gravity.CENTER);
+            productContainer.addView(emptyText);
+        } else {
+            for (Product product : products) {
+                addProductToScreen(product);
+            }
         }
     }
 
@@ -97,7 +176,7 @@ public class ProductListActivity extends AppCompatActivity {
         LinearLayout card = new LinearLayout(this);
         card.setOrientation(LinearLayout.VERTICAL);
         card.setPadding(cardPadding, cardPadding, cardPadding, cardPadding);
-        card.setBackgroundColor(0xFFF5F5F5); // Light card container on white background
+        card.setBackgroundResource(R.drawable.bg_product_card);
 
         LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,

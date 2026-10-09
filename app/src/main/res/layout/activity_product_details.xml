@@ -17,6 +17,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
             app:layout_constraintWidth_max="@dimen/content_max_width"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -31,7 +33,7 @@
                 android:layout_height="@dimen/product_detail_image_height"
                 android:scaleType="fitCenter"
                 android:padding="16dp"
-                android:background="#F5F5F5"
+                android:background="@drawable/bg_product_card"
                 android:importantForAccessibility="no" />
 
             <!-- CATEGORY -->
@@ -43,7 +45,7 @@
                 android:text="Category"
                 android:textSize="16sp"
                 android:textColor="@color/text_secondary"
-                android:layout_marginTop="24dp" />
+                android:layout_marginTop="20dp" />
 
             <!-- PRODUCT NAME -->
 
@@ -92,7 +94,9 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/button_text_size"
                 android:textStyle="bold"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="@dimen/button_margin_horizontal"
+                android:layout_marginEnd="@dimen/button_margin_horizontal"
                 app:backgroundTint="@color/fone_yellow"
                 app:strokeWidth="0dp"
                 app:cornerRadius="@dimen/button_corner_radius" />
@@ -110,6 +114,9 @@
                 android:textSize="@dimen/button_text_size"
                 android:textStyle="bold"
                 android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="@dimen/button_margin_horizontal"
+                android:layout_marginEnd="@dimen/button_margin_horizontal"
                 app:backgroundTint="@color/fone_yellow_dark"
                 app:strokeWidth="0dp"
                 app:cornerRadius="@dimen/button_corner_radius" />

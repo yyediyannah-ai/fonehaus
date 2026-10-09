@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/black_charcoal_hex">
+    android:background="@color/black">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -54,12 +54,11 @@
             android:gravity="center_horizontal"
             android:background="@drawable/bg_welcome_card_glass"
             android:padding="24dp"
-            android:layout_margin="@dimen/screen_padding"
             android:elevation="10dp"
+            android:layout_margin="20dp"
             app:layout_constraintWidth_max="@dimen/content_max_width"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
@@ -72,7 +71,7 @@
                 android:src="@drawable/ic_fone_haus_logo"
                 android:scaleType="fitCenter"
                 android:contentDescription="Fone Haus Logo"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="12dp" />
 
             <!-- WELCOME MESSAGE -->
 
@@ -83,7 +82,7 @@
                 android:textSize="@dimen/subtitle_text_size"
                 android:textStyle="bold"
                 android:textColor="@color/text_primary"
-                android:layout_marginTop="4dp" />
+                android:layout_marginTop="2dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -95,18 +94,72 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="16dp" />
 
+            <!-- SEARCH BOX CONTAINER -->
+
+            <LinearLayout
+                android:id="@+id/mainSearchBoxContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_search_box"
+                android:paddingStart="14dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔍 "
+                    android:textSize="16sp"
+                    android:importantForAccessibility="no" />
+
+                <EditText
+                    android:id="@+id/edtMainSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minHeight="@dimen/input_field_min_height"
+                    android:hint="Search products, brands..."
+                    android:inputType="text"
+                    android:imeOptions="actionSearch"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="#888888"
+                    android:background="@null"
+                    android:textSize="@dimen/body_text_size"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMainSearch"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Search"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
             <!-- QUICK CATEGORY CHIPS ROW (FEATURE) -->
 
             <HorizontalScrollView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="none"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="20dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp">
 
                     <TextView
                         android:id="@+id/chipPhones"
@@ -183,6 +236,8 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/button_text_size"
                 android:textStyle="bold"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 app:backgroundTint="@color/fone_yellow"
                 app:strokeWidth="0dp"
                 app:cornerRadius="@dimen/button_corner_radius" />
@@ -200,6 +255,8 @@
                 android:textSize="@dimen/button_text_size"
                 android:textStyle="bold"
                 android:layout_marginTop="12dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 app:backgroundTint="@color/fone_yellow"
                 app:strokeWidth="0dp"
                 app:cornerRadius="@dimen/button_corner_radius" />
@@ -217,6 +274,9 @@
                 android:textSize="@dimen/button_text_size"
                 android:textStyle="bold"
                 android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 app:backgroundTint="@color/fone_yellow"
                 app:strokeWidth="0dp"
                 app:cornerRadius="@dimen/button_corner_radius" />

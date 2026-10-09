@@ -2,6 +2,7 @@ package com.fonehaus.app;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -10,6 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.fonehaus.app.model.Cart;
 import com.fonehaus.app.model.CartManager;
@@ -42,9 +46,22 @@ public class CheckoutActivity extends AppCompatActivity {
         txtSummary = findViewById(R.id.txtCheckoutSummary);
         Button btnPlaceOrder = findViewById(R.id.btnPlaceOrder);
 
-        displaySummary();
+        if (btnPlaceOrder != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(btnPlaceOrder, (v, insets) -> {
+                Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+                ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                if (lp != null) {
+                    int baseMargin = getResources().getDimensionPixelSize(R.dimen.button_margin_bottom);
+                    lp.bottomMargin = systemBars.bottom + baseMargin;
+                    v.setLayoutParams(lp);
+                }
+                return insets;
+            });
 
-        btnPlaceOrder.setOnClickListener(v -> processCheckout());
+            btnPlaceOrder.setOnClickListener(v -> processCheckout());
+        }
+
+        displaySummary();
     }
 
     private void displaySummary() {

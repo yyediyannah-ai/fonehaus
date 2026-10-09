@@ -2,12 +2,16 @@ package com.fonehaus.app;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.fonehaus.app.model.CartManager;
 import com.fonehaus.app.model.IPhone;
@@ -103,6 +107,17 @@ public class ProductDetailsActivity extends AppCompatActivity {
         Button btnViewCart = findViewById(R.id.btnDetailsCart);
 
         if (btnViewCart != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(btnViewCart, (v, insets) -> {
+                Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+                ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                if (lp != null) {
+                    int baseMargin = getResources().getDimensionPixelSize(R.dimen.button_margin_bottom);
+                    lp.bottomMargin = systemBars.bottom + baseMargin;
+                    v.setLayoutParams(lp);
+                }
+                return insets;
+            });
+
             btnViewCart.setOnClickListener(v -> {
                 Intent intent = new Intent(ProductDetailsActivity.this, CartActivity.class);
                 startActivity(intent);

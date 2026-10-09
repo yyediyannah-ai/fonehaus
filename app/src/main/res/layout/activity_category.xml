@@ -18,10 +18,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center_horizontal"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
             app:layout_constraintWidth_max="@dimen/content_max_width"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.05"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
@@ -33,7 +34,59 @@
                 android:textStyle="bold"
                 android:textColor="@color/fone_yellow_text"
                 android:gravity="center"
-                android:layout_marginBottom="20dp" />
+                android:layout_marginBottom="16dp" />
+
+            <!-- SEARCH BOX CONTAINER -->
+
+            <LinearLayout
+                android:id="@+id/categorySearchBoxContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_search_box"
+                android:paddingStart="12dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔍 "
+                    android:textSize="16sp"
+                    android:importantForAccessibility="no" />
+
+                <EditText
+                    android:id="@+id/edtCategorySearch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minHeight="@dimen/input_field_min_height"
+                    android:hint="Search products, brands..."
+                    android:inputType="text"
+                    android:imeOptions="actionSearch"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="#888888"
+                    android:background="@null"
+                    android:textSize="@dimen/body_text_size"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCategorySearch"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Search"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
 
             <!-- PHONES -->
 
@@ -47,9 +100,11 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/button_text_size"
                 android:textStyle="bold"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 app:backgroundTint="@color/fone_yellow"
                 app:strokeWidth="0dp"
-                app:cornerRadius="8dp" />
+                app:cornerRadius="@dimen/button_corner_radius" />
 
             <!-- TABLETS -->
 
@@ -64,9 +119,11 @@
                 android:textSize="@dimen/button_text_size"
                 android:textStyle="bold"
                 android:layout_marginTop="12dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 app:backgroundTint="@color/fone_yellow"
                 app:strokeWidth="0dp"
-                app:cornerRadius="8dp" />
+                app:cornerRadius="@dimen/button_corner_radius" />
 
             <!-- LAPTOPS -->
 
@@ -81,9 +138,11 @@
                 android:textSize="@dimen/button_text_size"
                 android:textStyle="bold"
                 android:layout_marginTop="12dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 app:backgroundTint="@color/fone_yellow"
                 app:strokeWidth="0dp"
-                app:cornerRadius="8dp" />
+                app:cornerRadius="@dimen/button_corner_radius" />
 
             <!-- AUDIO -->
 
@@ -98,9 +157,11 @@
                 android:textSize="@dimen/button_text_size"
                 android:textStyle="bold"
                 android:layout_marginTop="12dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 app:backgroundTint="@color/fone_yellow"
                 app:strokeWidth="0dp"
-                app:cornerRadius="8dp" />
+                app:cornerRadius="@dimen/button_corner_radius" />
 
             <!-- TVS -->
 
@@ -115,9 +176,11 @@
                 android:textSize="@dimen/button_text_size"
                 android:textStyle="bold"
                 android:layout_marginTop="12dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 app:backgroundTint="@color/fone_yellow"
                 app:strokeWidth="0dp"
-                app:cornerRadius="8dp" />
+                app:cornerRadius="@dimen/button_corner_radius" />
 
             <!-- SMART WATCHES -->
 
@@ -132,9 +195,11 @@
                 android:textSize="@dimen/button_text_size"
                 android:textStyle="bold"
                 android:layout_marginTop="12dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 app:backgroundTint="@color/fone_yellow"
                 app:strokeWidth="0dp"
-                app:cornerRadius="8dp" />
+                app:cornerRadius="@dimen/button_corner_radius" />
 
             <!-- ALL PRODUCTS -->
 
@@ -149,9 +214,11 @@
                 android:textSize="@dimen/button_text_size"
                 android:textStyle="bold"
                 android:layout_marginTop="12dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 app:backgroundTint="@color/fone_yellow"
                 app:strokeWidth="0dp"
-                app:cornerRadius="8dp" />
+                app:cornerRadius="@dimen/button_corner_radius" />
 
             <!-- CART -->
 
@@ -166,9 +233,12 @@
                 android:textSize="@dimen/button_text_size"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 app:backgroundTint="@color/fone_yellow_dark"
                 app:strokeWidth="0dp"
-                app:cornerRadius="8dp" />
+                app:cornerRadius="@dimen/button_corner_radius" />
 
         </LinearLayout>
 

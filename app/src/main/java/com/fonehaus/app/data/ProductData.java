@@ -235,6 +235,31 @@ public class ProductData {
         return filtered;
     }
 
+    public static ArrayList<Product> searchProducts(String query) {
+        return searchProducts(query, "All");
+    }
+
+    public static ArrayList<Product> searchProducts(String query, String category) {
+        ArrayList<Product> filtered = new ArrayList<>();
+        ArrayList<Product> categoryProducts = getProductsByCategory(category);
+
+        if (query == null || query.trim().isEmpty()) {
+            return categoryProducts;
+        }
+
+        String lowerQuery = query.trim().toLowerCase();
+
+        for (Product product : categoryProducts) {
+            if (product.getProductName().toLowerCase().contains(lowerQuery)
+                    || product.getDescription().toLowerCase().contains(lowerQuery)
+                    || product.getCategory().toLowerCase().contains(lowerQuery)) {
+                filtered.add(product);
+            }
+        }
+
+        return filtered;
+    }
+
     /**
      * Demonstrates polymorphic behavior across the Product hierarchy.
      * Iterates over a list of Product references and invokes overridden methods.
